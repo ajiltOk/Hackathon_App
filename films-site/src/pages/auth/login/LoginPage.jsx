@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField } from "@mui/material";
-import { InputAdornment } from "@mui/material";
-import { IconButton } from "@mui/material";
-import { OutlinedInput } from "@mui/material";
-import { FormControl } from "@mui/material";
-import { InputLabel } from "@mui/material";
-import { Button } from "@mui/material";
-import { Visibility } from "@mui/icons-material";
-import { VisibilityOff } from "@mui/icons-material";
-import { Link } from "@mui/material";
+import {
+  TextField,
+  InputAdornment,
+  IconButton,
+  OutlinedInput,
+  FormControl,
+  InputLabel,
+  Button,
+  Link,
+} from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "./LoginPage.scss";
 
 function LoginPage() {
