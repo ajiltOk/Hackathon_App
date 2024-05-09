@@ -1,0 +1,41 @@
+.filmCard {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.firstRow,
+.secondRow {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.firstRow {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.firstColumn,
+.secondColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.filmName {
+  display: flex;
+  flex-direction: column;
+}
+
+.filmDescription {
+  padding: 50px;
+}
+
+.firstColumn {
+  min-width: 200px;
+  margin-right: 100px;
+}
+
+span {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

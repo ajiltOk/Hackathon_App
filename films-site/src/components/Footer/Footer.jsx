@@ -93,7 +93,7 @@ function Footer() {
           <YouTubeIcon></YouTubeIcon>
         </Box>
         <Box sx={{ ml: 40, textAlign: "center" }}>
-          <p>1717 Herriso St, San Francisco, CA 94103, USA</p>
+          <p>1717 Herrison St, San Francisco, CA 94103, USA</p>
           <p>
             <CopyrightIcon sx={{ fontSize: "small" }} /> 2022 Your Company. All
             rights reserved.

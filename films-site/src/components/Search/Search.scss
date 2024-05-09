@@ -1,0 +1,25 @@
+.searchBox {
+  position: relative;
+  display: flex;
+}
+
+.dropdown {
+  margin: 0;
+  position: absolute; /* позиционируем элемент абсолютно */
+  top: 100%; /* располагаем элемент под инпутом */
+  left: 0; /* выравниваем элемент по левому краю инпута */
+  z-index: 2; /* задаем значение z-index выше, чем у других элементов */
+  display: block; /* отображаем элемент как блочный */
+  background-color: white;
+  color: black;
+  max-height: 200px; /* ограничение высоты на 200px */
+  overflow-y: auto; /* добавление вертикальной прокрутки, если содержимое окна превышает 200px */
+  padding-left: 10px;
+  width: 100%;
+}
+
+.listItem {
+  list-style: none;
+  margin: 10px 0;
+  cursor: pointer;
+}
