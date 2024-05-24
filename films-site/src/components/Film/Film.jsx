@@ -5,8 +5,6 @@ import { useSelector } from "react-redux";
 function Main() {
   const id = useSelector((state) => state.id.id);
 
-  console.log(id);
-
   const { data, isError, isLoading } = useGetFilmByIdQuery(id);
 
   if (isLoading) return <h1>Loading...</h1>;

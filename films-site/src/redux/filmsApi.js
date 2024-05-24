@@ -10,9 +10,6 @@ export const filmsApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    getFilmsCollections: build.query({
-      query: () => `/api/v2.2/films/collections`,
-    }),
     getFilmsByKeyword: build.query({
       query: (keyword) =>
         `/api/v2.1/films/search-by-keyword?keyword=${keyword}`,
@@ -20,11 +17,14 @@ export const filmsApi = createApi({
     getFilmById: build.query({
       query: (id) => `/api/v2.2/films/${id}`,
     }),
+    getPageCollections: build.query({
+      query: (page) => `/api/v2.2/films/collections?page=${page}`,
+    }),
   }),
 });
 
 export const {
-  useGetFilmsCollectionsQuery,
   useGetFilmsByKeywordQuery,
   useGetFilmByIdQuery,
+  useGetPageCollectionsQuery,
 } = filmsApi;

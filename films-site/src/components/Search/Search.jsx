@@ -3,7 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState, useRef, useEffect } from "react";
 import { useGetFilmsByKeywordQuery } from "../../redux/filmsApi";
 import "./Search.scss";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setId } from "../../redux/slices/sliceSearchById";
 
@@ -30,6 +30,7 @@ function SearchInput() {
     if (inputRef.current) {
       inputRef.current.focus();
     }
+    setIsActive(true);
   });
 
   const { data = [] } = useGetFilmsByKeywordQuery(keyword);
@@ -92,9 +93,9 @@ function SearchInput() {
             {data != "" &&
               data.films.map((film) => (
                 <li className="listItem" key={film.filmId}>
-                  <NavLink to="/home/film" id={film.filmId}>
+                  <Link to={`/home/${film.filmId}`} id={film.filmId}>
                     {film.nameRu}
-                  </NavLink>
+                  </Link>
                 </li>
               ))}
           </ul>

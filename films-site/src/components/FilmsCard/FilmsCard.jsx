@@ -1,7 +1,15 @@
 import { Button } from "@mui/material";
 import "./FilmsCard.scss";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setId } from "../../redux/slices/sliceSearchById";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import StarIcon from "@mui/icons-material/Star";
+import { useState } from "react";
+import { setFaforiteFilm } from "../../redux/slices/sliceFavorites";
+import { useSelector } from "react-redux";
 
-function FilmCard({ data }) {
+function FilmCard({ data, id }) {
   let countries = "";
 
   data.countries.forEach((element, index) => {
@@ -29,6 +37,21 @@ function FilmCard({ data }) {
     }
   });
 
+  const starSate = useSelector((state) => state.favoriteFilms.star);
+
+  const [star, setStar] = useState(starSate);
+
+  const dispatch = useDispatch();
+
+  const handleClick = (event) => {
+    dispatch(setId(event.target.id));
+  };
+
+  const handleClickStar = () => {
+    setStar(!star);
+    dispatch(setFaforiteFilm(data));
+  };
+
   return (
     <>
       <div className="filmCard">
@@ -38,10 +61,13 @@ function FilmCard({ data }) {
         <div className="filmDescription">
           <div className="firstRow">
             <div className="filmName">
-              <span>
+              <Link to={`/home/${id}`} onClick={handleClick} id={id}>
                 {data.nameRu} ({data.year})
-              </span>
+              </Link>
               <span>{data.nameOriginal}</span>
+              <span onClick={handleClickStar}>
+                {star ? <StarBorderIcon /> : <StarIcon />}
+              </span>
             </div>
             <Button variant="contained">Смотреть</Button>
           </div>
@@ -49,14 +75,12 @@ function FilmCard({ data }) {
             <div className="firstColumn">
               <span>Страна</span>
               <span>Жанр</span>
-              {/*<span>Продолжительность</span>*/}
               <span>Рейтинг Кинопоиск</span>
               <span>Тип</span>
             </div>
             <div className="secondColumn">
               <span>{countries}</span>
               <span>{genres}</span>
-              {/*<span>{data.filmLength} минут</span>*/}
               <span>{data.ratingKinopoisk}</span>
               <span>{data.type}</span>
             </div>

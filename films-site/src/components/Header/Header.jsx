@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link as NavLink } from "react-router-dom";
 import {
   AppBar,
   Box,
@@ -52,6 +52,7 @@ function Header() {
             {"КиноСкрыт"}
           </Link>
           <SearchInput />
+          <NavLink to="/home/faforites">Избранное</NavLink>
           {!loginUser && (
             <Button onClick={LoginUser} color="inherit">
               Login
