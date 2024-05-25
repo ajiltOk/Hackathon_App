@@ -2,7 +2,7 @@ import FilmCard from "../FilmCard/FilmCard";
 import { useGetFilmByIdQuery } from "../../redux/filmsApi";
 import { useSelector } from "react-redux";
 
-function Main() {
+function Film() {
   const id = useSelector((state) => state.id.id);
 
   const { data, isError, isLoading } = useGetFilmByIdQuery(id);
@@ -14,4 +14,4 @@ function Main() {
   return <FilmCard data={data} />;
 }
 
-export default Main;
+export default Film;

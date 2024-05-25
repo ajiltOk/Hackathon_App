@@ -1,15 +1,12 @@
 import { Button } from "@mui/material";
-import "./FilmsCard.scss";
+import "./FilmCardHomePage.scss";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setId } from "../../redux/slices/sliceSearchById";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
-import StarIcon from "@mui/icons-material/Star";
-import { useState } from "react";
-import { setFaforiteFilm } from "../../redux/slices/sliceFavorites";
-import { useSelector } from "react-redux";
+import { setFaforiteFilm, deleteFaforiteFilm} from "../../redux/slices/sliceFavorites";
 
-function FilmCard({ data, id }) {
+function FilmCardHomePage({ data, id, isFavorite = false }) {
+  
   let countries = "";
 
   data.countries.forEach((element, index) => {
@@ -37,18 +34,16 @@ function FilmCard({ data, id }) {
     }
   });
 
-  const starSate = useSelector((state) => state.favoriteFilms.star);
-
-  const [star, setStar] = useState(starSate);
-
   const dispatch = useDispatch();
 
   const handleClick = (event) => {
     dispatch(setId(event.target.id));
   };
 
-  const handleClickStar = () => {
-    setStar(!star);
+  const handleClickFavorite = (event) => {
+    if(isFavorite) {
+      dispatch(deleteFaforiteFilm(event.target.id));
+    }
     dispatch(setFaforiteFilm(data));
   };
 
@@ -61,15 +56,19 @@ function FilmCard({ data, id }) {
         <div className="filmDescription">
           <div className="firstRow">
             <div className="filmName">
-              <Link to={`/home/${id}`} onClick={handleClick} id={id}>
+              <Link className="movieTitle" to={`/home/${id}`} onClick={handleClick} id={id}>
                 {data.nameRu} ({data.year})
               </Link>
               <span>{data.nameOriginal}</span>
-              <span onClick={handleClickStar}>
-                {star ? <StarBorderIcon /> : <StarIcon />}
-              </span>
+              <button className="star" onClick={handleClickFavorite} id={id} >
+                {isFavorite ? "Убрать из избранное" : "Добавить в избранное"}
+              </button>
             </div>
-            <Button variant="contained">Смотреть</Button>
+            <Button variant="contained">
+              <Link className="button" to={`/home/${id}`} onClick={handleClick} id={id}>
+                Смотреть
+              </Link>
+            </Button>
           </div>
           <div className="secondRow">
             <div className="firstColumn">
@@ -91,4 +90,4 @@ function FilmCard({ data, id }) {
   );
 }
 
-export default FilmCard;
+export default FilmCardHomePage;

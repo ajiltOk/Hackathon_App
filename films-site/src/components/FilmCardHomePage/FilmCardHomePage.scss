@@ -35,7 +35,17 @@
   margin-right: 100px;
 }
 
-span {
+span, .movieTitle {
   font-size: 18px;
   margin-bottom: 10px;
 }
+
+.star {
+  cursor: pointer;
+}
+
+.button, .movieTitle {
+  text-decoration: none;
+  color: inherit;
+}
+

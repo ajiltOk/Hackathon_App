@@ -1,4 +1,4 @@
-import FilmsCard from "../FilmsCard/FilmsCard";
+import FilmsCardHomePage from "../FilmCardHomePage/FilmCardHomePage";
 import { useGetPageCollectionsQuery } from "../../redux/filmsApi";
 import "./Main.scss";
 import { useState } from "react";
@@ -26,7 +26,7 @@ function Main() {
       <ul>
         {data.items.map((film) => (
           <li className="item" key={film.kinopoiskId}>
-            <FilmsCard data={film} id={film.kinopoiskId} />
+            <FilmsCardHomePage data={film} id={film.kinopoiskId} />
           </li>
         ))}
       </ul>

@@ -9,7 +9,8 @@ import FavoriteFilms from "../../components/FavoriteFilms/FavoriteFilms";
 function Home() {
   const id = useSelector((state) => state.id.id);
 
-  const films = useSelector((state) => state.favoriteFilms.favoritPage);
+  const films = useSelector((state) => state.favoriteFilms.favoritePage);
+  console.log(films)
 
   return (
     <>

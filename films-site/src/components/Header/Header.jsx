@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 
 import SearchInput from "../Search/Search";
+import "./Header.scss";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -52,7 +53,11 @@ function Header() {
             {"КиноСкрыт"}
           </Link>
           <SearchInput />
-          <NavLink to="/home/faforites">Избранное</NavLink>
+          <Button>
+            <NavLink className="favorite" to="/home/faforites">
+              Избранное
+            </NavLink>
+          </Button>
           {!loginUser && (
             <Button onClick={LoginUser} color="inherit">
               Login

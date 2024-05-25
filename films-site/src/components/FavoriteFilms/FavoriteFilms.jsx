@@ -1,12 +1,13 @@
-import FilmsCard from "../FilmsCard/FilmsCard";
+import FilmsCardHomePage from "../FilmCardHomePage/FilmCardHomePage";
 
 function FavoriteFilms({ films }) {
+  
   return (
     <>
       <ul>
         {films.map((film) => (
           <li className="item" key={film.kinopoiskId}>
-            <FilmsCard data={film} id={film.kinopoiskId} />
+            <FilmsCardHomePage data={film} id={film.kinopoiskId} isFavorite={true}/>
           </li>
         ))}
       </ul>
