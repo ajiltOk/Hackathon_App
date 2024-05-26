@@ -1,1 +1,1 @@
-https://ajiltOk.github.io/Hackathon_App/blob/main/films-site/index.html
+https://ajiltOk.github.io/Hackathon_App/main/films-site/index.html
